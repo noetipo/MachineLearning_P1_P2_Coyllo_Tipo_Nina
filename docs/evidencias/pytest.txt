@@ -1,0 +1,58 @@
+Ejecución de la batería de pruebas: 2026-11-21 08:10 · Darwin 25.3.0
+Comando: pytest -v
+
+============================= test session starts ==============================
+platform darwin -- Python 3.13.5, pytest-9.2.0, pluggy-1.7.0 -- /Users/noe/Documents/MaestriaCienciaDatos/.venv/bin/python
+rootdir: <raiz-del-proyecto>
+configfile: pytest.ini
+testpaths: tests
+plugins: platformdirs-4.14.8, anyio-4.16.0
+collecting ... collected 45 items
+
+tests/test_apps.py::test_app_escritorio_humo PASSED                      [  2%]
+tests/test_apps.py::test_app_escritorio_importa_sin_abrir_ventana PASSED [  4%]
+tests/test_apps.py::test_demo_streamlit_carga_y_predice PASSED           [  6%]
+tests/test_datos.py::test_csv_carga_y_tiene_columnas_esperadas PASSED    [  8%]
+tests/test_datos.py::test_mapeo_de_columnas_completo PASSED              [ 11%]
+tests/test_datos.py::test_cargo_total_numerico_con_blancos_como_nan PASSED [ 13%]
+tests/test_datos.py::test_objetivo_binario PASSED                        [ 15%]
+tests/test_datos.py::test_no_quedan_categorias_sin_traducir PASSED       [ 17%]
+tests/test_datos.py::test_traducir_es_idempotente PASSED                 [ 20%]
+tests/test_datos.py::test_separar_excluye_id_y_cargo_total PASSED        [ 22%]
+tests/test_datos.py::test_csv_original_no_modificado PASSED              [ 24%]
+tests/test_datos_prueba.py::test_conjunto_de_test_reproduce_metricas_oficiales PASSED [ 26%]
+tests/test_datos_prueba.py::test_clientes_de_prueba_no_estan_en_entrenamiento PASSED [ 28%]
+tests/test_datos_prueba.py::test_lotes_validos_incluyen_valor_real[clientes_muestra.csv] PASSED [ 31%]
+tests/test_datos_prueba.py::test_lotes_validos_incluyen_valor_real[clientes_formato_ibm.csv] PASSED [ 33%]
+tests/test_datos_prueba.py::test_archivos_con_errores_se_rechazan[error_valor_no_numerico.csv-debe ser un n\xfamero] PASSED [ 35%]
+tests/test_datos_prueba.py::test_archivos_con_errores_se_rechazan[error_categoria_invalida.csv-Valor no v\xe1lido en 'tipo_contrato'] PASSED [ 37%]
+tests/test_datos_prueba.py::test_archivos_con_errores_se_rechazan[error_columna_faltante.csv-Faltan columnas obligatorias: metodo_pago] PASSED [ 40%]
+tests/test_datos_prueba.py::test_casos_ejemplo_coinciden_con_su_descripcion PASSED [ 42%]
+tests/test_datos_prueba.py::test_lote_sin_etiqueta_no_se_evalua PASSED   [ 44%]
+tests/test_modelo.py::test_modelo_carga_y_es_pipeline_completo PASSED    [ 46%]
+tests/test_modelo.py::test_predict_proba_entre_0_y_1 PASSED              [ 48%]
+tests/test_modelo.py::test_metricas_coinciden_con_modelo_final_json PASSED [ 51%]
+tests/test_modelo.py::test_ficha_registra_versiones PASSED               [ 53%]
+tests/test_modelo.py::test_sentido_comun_contrato_mensual_vs_dos_anios PASSED [ 55%]
+tests/test_notebooks.py::test_notebooks_corren_en_orden PASSED           [ 57%]
+tests/test_notebooks.py::test_traduccion_del_notebook_igual_a_src PASSED [ 60%]
+tests/test_prediccion.py::test_caso_individual PASSED                    [ 62%]
+tests/test_prediccion.py::test_acepta_numeros_como_texto PASSED          [ 64%]
+tests/test_prediccion.py::test_lote_con_csv_original_en_ingles PASSED    [ 66%]
+tests/test_prediccion.py::test_lote_sin_id_genera_identificadores PASSED [ 68%]
+tests/test_prediccion.py::test_rechaza_entradas_invalidas[cambio0-debe ser un n\xfamero] PASSED [ 71%]
+tests/test_prediccion.py::test_rechaza_entradas_invalidas[cambio1-debe estar entre] PASSED [ 73%]
+tests/test_prediccion.py::test_rechaza_entradas_invalidas[cambio2-debe estar entre] PASSED [ 75%]
+tests/test_prediccion.py::test_rechaza_entradas_invalidas[cambio3-Valor no v\xe1lido en 'tipo_contrato'] PASSED [ 77%]
+tests/test_prediccion.py::test_rechaza_entradas_invalidas[cambio4-Valor no v\xe1lido en 'genero'] PASSED [ 80%]
+tests/test_prediccion.py::test_rechaza_columnas_faltantes PASSED         [ 82%]
+tests/test_prediccion.py::test_rechaza_lote_vacio_y_tipo_incorrecto PASSED [ 84%]
+tests/test_prediccion.py::test_opciones_salen_del_modelo PASSED          [ 86%]
+tests/test_prediccion.py::test_niveles_de_riesgo PASSED                  [ 88%]
+tests/test_preprocesamiento.py::test_pipeline_ajusta_y_predice PASSED    [ 91%]
+tests/test_preprocesamiento.py::test_preprocesador_tolera_faltantes_y_categorias_no_vistas PASSED [ 93%]
+tests/test_preprocesamiento.py::test_todo_el_preprocesamiento_esta_dentro_del_pipeline PASSED [ 95%]
+tests/test_preprocesamiento.py::test_escalado_aprendido_solo_con_datos_de_ajuste PASSED [ 97%]
+tests/test_reproducibilidad.py::test_entrenar_dos_veces_da_lo_mismo PASSED [100%]
+
+======================== 45 passed in 67.28s (0:01:07) =========================
