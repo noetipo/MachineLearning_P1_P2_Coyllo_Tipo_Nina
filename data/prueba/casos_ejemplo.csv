@@ -1,0 +1,9 @@
+caso,id_cliente,antiguedad_meses,cargo_mensual,genero,adulto_mayor,tiene_pareja,tiene_dependientes,servicio_telefonico,lineas_multiples,servicio_internet,seguridad_en_linea,respaldo_en_linea,proteccion_dispositivo,soporte_tecnico,tv_streaming,peliculas_streaming,tipo_contrato,factura_electronica,metodo_pago,abandona
+Riesgo bajo · permaneció · acierto (5893-PYOLZ),5893-PYOLZ,56,81.8,Hombre,No,No,No,Sí,No,DSL,No,Sí,Sí,Sí,Sí,Sí,Dos años,Sí,Tarjeta de crédito (automática),0
+Riesgo bajo · abandonó · error del modelo (3594-UVONA),3594-UVONA,35,85.95,Mujer,No,No,No,Sí,Sí,DSL,Sí,No,Sí,Sí,Sí,Sí,Un año,Sí,Tarjeta de crédito (automática),1
+Riesgo medio · permaneció · acierto (8713-IGZSO),8713-IGZSO,2,24.85,Hombre,No,No,No,Sí,Sí,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Mensual,No,Cheque por correo,0
+Riesgo medio · abandonó · error del modelo (1087-UDSIH),1087-UDSIH,3,19.6,Mujer,No,No,No,Sí,No,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Mensual,Sí,Cheque por correo,1
+Riesgo alto · permaneció · error del modelo (9450-TRJUU),9450-TRJUU,35,83.15,Hombre,No,No,No,Sí,Sí,Fibra óptica,No,No,No,No,Sí,No,Mensual,No,Cheque electrónico,0
+Riesgo alto · abandonó · acierto (8650-RHRKE),8650-RHRKE,4,29.65,Hombre,No,No,No,No,Sin teléfono,DSL,No,No,Sí,No,No,No,Mensual,Sí,Cheque electrónico,1
+Riesgo medio · abandonó · error del modelo (7957-RYHQD),7957-RYHQD,40,79.2,Mujer,Sí,No,No,Sí,No,Fibra óptica,Sí,Sí,No,No,No,No,Mensual,Sí,Tarjeta de crédito (automática),1
+Riesgo alto · permaneció · error del modelo (8495-PRWFH),8495-PRWFH,42,55.65,Mujer,Sí,No,No,Sí,Sí,DSL,No,No,Sí,No,No,No,Mensual,No,Cheque electrónico,0

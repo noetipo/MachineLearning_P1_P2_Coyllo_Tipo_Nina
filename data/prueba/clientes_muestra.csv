@@ -1,0 +1,31 @@
+id_cliente,antiguedad_meses,cargo_mensual,genero,adulto_mayor,tiene_pareja,tiene_dependientes,servicio_telefonico,lineas_multiples,servicio_internet,seguridad_en_linea,respaldo_en_linea,proteccion_dispositivo,soporte_tecnico,tv_streaming,peliculas_streaming,tipo_contrato,factura_electronica,metodo_pago,abandona
+1143-NMNQJ,2,85.7,Mujer,No,No,No,Sí,Sí,Fibra óptica,No,No,No,No,No,Sí,Mensual,Sí,Cheque electrónico,1
+9351-HXDMR,72,110.9,Hombre,No,Sí,No,Sí,Sí,Fibra óptica,Sí,No,Sí,Sí,Sí,Sí,Dos años,Sí,Tarjeta de crédito (automática),0
+2782-LFZVW,11,58.95,Mujer,No,No,No,Sí,Sí,DSL,No,No,No,No,No,Sí,Mensual,Sí,Cheque por correo,0
+7520-HQWJU,66,67.45,Mujer,No,Sí,Sí,Sí,Sí,DSL,Sí,Sí,Sí,No,No,No,Mensual,Sí,Transferencia bancaria (automática),0
+1131-ALZWV,24,24.6,Mujer,No,No,No,Sí,Sí,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Un año,No,Transferencia bancaria (automática),0
+3831-YCPUO,72,109.5,Mujer,No,Sí,Sí,Sí,No,Fibra óptica,Sí,Sí,Sí,Sí,Sí,Sí,Dos años,Sí,Tarjeta de crédito (automática),0
+1100-DDVRV,17,49.8,Hombre,No,Sí,No,No,Sin teléfono,DSL,No,Sí,No,No,Sí,Sí,Mensual,Sí,Cheque por correo,0
+2522-WLNSF,34,64.2,Mujer,Sí,Sí,No,Sí,No,DSL,No,No,Sí,Sí,Sí,No,Un año,No,Transferencia bancaria (automática),0
+3161-ONRWK,60,65.85,Hombre,No,Sí,Sí,Sí,No,DSL,Sí,Sí,Sí,Sí,No,No,Un año,Sí,Transferencia bancaria (automática),0
+2252-JHJGE,61,104.0,Hombre,No,No,No,Sí,Sí,Fibra óptica,Sí,No,Sí,No,Sí,Sí,Un año,No,Cheque electrónico,0
+1751-NCDLI,46,98.85,Hombre,Sí,Sí,No,Sí,Sí,Fibra óptica,No,No,Sí,No,Sí,Sí,Mensual,Sí,Cheque electrónico,0
+3672-YITQD,36,84.1,Hombre,Sí,Sí,No,Sí,Sí,Fibra óptica,No,No,No,No,No,Sí,Mensual,Sí,Cheque electrónico,1
+8241-JUIQO,61,19.45,Mujer,No,No,No,Sí,No,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Un año,No,Transferencia bancaria (automática),0
+9588-YRFHY,49,19.9,Hombre,No,No,No,Sí,No,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Dos años,Sí,Tarjeta de crédito (automática),0
+8840-DQLGN,35,100.5,Mujer,Sí,Sí,No,Sí,Sí,Fibra óptica,Sí,Sí,No,Sí,Sí,No,Mensual,Sí,Transferencia bancaria (automática),1
+0959-WHOKV,42,99.0,Hombre,No,No,No,Sí,Sí,Fibra óptica,Sí,Sí,Sí,No,No,Sí,Un año,Sí,Cheque electrónico,0
+7191-ADRGF,44,54.3,Hombre,No,Sí,No,No,Sin teléfono,DSL,No,Sí,Sí,No,Sí,Sí,Dos años,No,Transferencia bancaria (automática),0
+2788-CJQAQ,13,19.45,Hombre,No,No,No,Sí,No,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Un año,No,Cheque por correo,0
+2972-YDYUW,57,94.7,Mujer,No,No,No,Sí,Sí,Fibra óptica,No,Sí,No,Sí,No,Sí,Un año,No,Cheque electrónico,0
+0841-NULXI,1,35.55,Hombre,No,No,No,No,Sin teléfono,DSL,No,No,No,No,No,Sí,Mensual,Sí,Cheque electrónico,1
+2129-ALKBS,40,26.2,Mujer,No,Sí,Sí,Sí,Sí,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Mensual,Sí,Cheque electrónico,0
+5650-YLIBA,31,81.15,Hombre,No,No,No,Sí,Sí,Fibra óptica,No,Sí,No,No,No,No,Mensual,Sí,Cheque electrónico,0
+6899-PPEEA,37,96.55,Mujer,Sí,No,No,Sí,Sí,Fibra óptica,No,No,No,No,Sí,Sí,Mensual,Sí,Cheque electrónico,1
+0871-URUWO,13,102.25,Hombre,No,Sí,No,Sí,Sí,Fibra óptica,No,No,Sí,No,Sí,Sí,Mensual,Sí,Tarjeta de crédito (automática),1
+3181-MIZBN,16,19.75,Hombre,No,Sí,Sí,Sí,No,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Mensual,No,Cheque electrónico,0
+0628-CNQRM,22,67.5,Hombre,No,Sí,Sí,Sí,No,DSL,Sí,No,Sí,Sí,Sí,No,Un año,Sí,Transferencia bancaria (automática),1
+0365-TRTPY,37,91.2,Mujer,No,No,No,Sí,Sí,Fibra óptica,Sí,Sí,Sí,No,No,No,Mensual,No,Transferencia bancaria (automática),0
+2604-IJPDU,20,96.55,Mujer,No,Sí,No,Sí,No,Fibra óptica,Sí,Sí,No,Sí,Sí,No,Mensual,Sí,Cheque electrónico,0
+3707-GNWHM,1,74.25,Hombre,No,No,No,Sí,Sí,Fibra óptica,No,No,No,No,No,No,Mensual,Sí,Cheque por correo,1
+9701-CDXHR,51,69.15,Mujer,No,Sí,No,Sí,No,Fibra óptica,No,No,No,No,No,No,Mensual,No,Cheque por correo,0

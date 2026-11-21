@@ -1,5 +1,8 @@
-"""Prueba de humo de la app de escritorio. La ejecuta tests/test_apps.py en un
-subproceso (así un problema de la pantalla no bloquea ni rompe a pytest)."""
+"""Prueba de humo de la aplicación de escritorio.
+
+Se ejecuta desde tests/test_apps.py en un subproceso, de modo que un problema
+con la pantalla no bloquee la ejecución de pytest.
+"""
 import sys
 import tempfile
 from pathlib import Path
@@ -25,6 +28,10 @@ assert app.datos_formulario()["soporte_tecnico"] == "Sin internet"
 res = app.cargar_csv(str(RUTA_CSV))
 assert len(res) == 7043 and len(app.tabla.get_children()) == 7043
 app.ordenar("prob_abandono")
+assert app.cargar_csv(str(RAIZ / "data" / "prueba" / "clientes_test.csv")) is not None
+assert "VP = 301" in app.lbl_evaluacion.cget("text")
+caso = next(iter(app.casos))
+assert app.cargar_caso(caso) is not None and "Valor real" in app.lbl_real.cget("text")
 with tempfile.TemporaryDirectory() as d:
     destino = Path(d) / "salida.csv"
     app.exportar_csv(str(destino), avisar=False)

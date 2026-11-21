@@ -1,5 +1,8 @@
-"""Cargar el modelo guardado y predecir. Sin interfaz gráfica: lo usan la app
-de escritorio, la demo de Streamlit, los scripts y los tests."""
+"""Carga del modelo entrenado y funciones de predicción.
+
+Módulo independiente de la interfaz gráfica; lo utilizan la aplicación de
+escritorio, la demostración en Streamlit, los scripts y las pruebas.
+"""
 from __future__ import annotations
 
 import json
@@ -9,14 +12,14 @@ import joblib
 import numpy as np
 import pandas as pd
 
-from .datos import CATEGORICAS, ID, NUMERICAS, RAIZ, VARIABLES_MODELO, traducir
+from .datos import CATEGORICAS, ID, NUMERICAS, OBJETIVO, RAIZ, VARIABLES_MODELO, traducir
 
 RUTA_MODELO = RAIZ / "app" / "modelo.joblib"
 RUTA_INFO = RAIZ / "resultados" / "modelo_final.json"
 
-# Cortes de nivel de riesgo sobre la probabilidad estimada (ver DECISIONES.md).
+# Cortes de nivel de riesgo sobre la probabilidad estimada.
 UMBRAL_MEDIO = 0.30
-UMBRAL_ALTO = 0.50  # coincide con el umbral de decisión del modelo
+UMBRAL_ALTO = 0.50  # umbral de decisión del modelo
 
 LIMITES_NUMERICOS = {
     "antiguedad_meses": (0, 120),
@@ -33,7 +36,7 @@ RECOMENDACIONES = {
 
 
 class ErrorEntrada(ValueError):
-    """Entrada inválida para el modelo (mensaje pensado para el usuario final)."""
+    """Error de validación de los datos de entrada."""
 
 
 def cargar_modelo(ruta: str | Path | None = None):
@@ -69,10 +72,10 @@ def nivel_riesgo(prob: float) -> str:
 
 
 def validar_clientes(df: pd.DataFrame, modelo) -> pd.DataFrame:
-    """Traduce (si hace falta) y valida un DataFrame de clientes.
+    """Traduce y valida un DataFrame de clientes.
 
-    Lanza ``ErrorEntrada`` con un mensaje claro si falta una columna, si un número
-    no es válido o si una categoría no fue vista al entrenar.
+    Lanza ``ErrorEntrada`` si falta una columna, si un valor numérico no es
+    válido o si una categoría no fue observada durante el entrenamiento.
     """
     if not isinstance(df, pd.DataFrame) or df.empty:
         raise ErrorEntrada("No hay clientes para evaluar.")
@@ -115,7 +118,11 @@ def predecir_cliente(modelo, cliente: dict) -> dict:
 
 
 def predecir_lote(modelo, df: pd.DataFrame) -> pd.DataFrame:
-    """Devuelve el lote con columnas de probabilidad y nivel, ordenado por riesgo."""
+    """Predice un lote de clientes y lo ordena de mayor a menor probabilidad.
+
+    Si el archivo incluye la variable objetivo (``abandona`` o ``Churn``), se
+    conserva en la salida para poder contrastar la predicción con el valor real.
+    """
     X = validar_clientes(df, modelo)
     prob = modelo.predict_proba(X)[:, 1]
     salida = pd.DataFrame(index=X.index)
@@ -127,4 +134,29 @@ def predecir_lote(modelo, df: pd.DataFrame) -> pd.DataFrame:
     salida = pd.concat([salida, X], axis=1)
     salida["prob_abandono"] = prob.round(4)
     salida["nivel_riesgo"] = [nivel_riesgo(p) for p in prob]
+    salida["prediccion"] = (prob >= UMBRAL_ALTO).astype(int)
+    if OBJETIVO in original.columns:
+        salida[OBJETIVO] = pd.to_numeric(original[OBJETIVO], errors="coerce").values
     return salida.sort_values("prob_abandono", ascending=False).reset_index(drop=True)
+
+
+def comparar_con_real(resultado: pd.DataFrame) -> dict | None:
+    """Matriz de confusión y métricas de un lote que incluye la etiqueta real.
+
+    Devuelve ``None`` si el lote no trae la columna ``abandona``.
+    """
+    if OBJETIVO not in resultado.columns or resultado[OBJETIVO].isna().any():
+        return None
+    real = resultado[OBJETIVO].astype(int)
+    pred = resultado["prediccion"].astype(int)
+    vp = int(((pred == 1) & (real == 1)).sum())
+    fn = int(((pred == 0) & (real == 1)).sum())
+    fp = int(((pred == 1) & (real == 0)).sum())
+    vn = int(((pred == 0) & (real == 0)).sum())
+    n = vp + fn + fp + vn
+    return {
+        "n": n, "vp": vp, "fn": fn, "fp": fp, "vn": vn,
+        "recall": vp / (vp + fn) if vp + fn else float("nan"),
+        "precision": vp / (vp + fp) if vp + fp else float("nan"),
+        "exactitud": (vp + vn) / n if n else float("nan"),
+    }

@@ -1,0 +1,6 @@
+id_cliente,antiguedad_meses,cargo_mensual,genero,adulto_mayor,tiene_pareja,tiene_dependientes,servicio_telefonico,lineas_multiples,servicio_internet,seguridad_en_linea,respaldo_en_linea,proteccion_dispositivo,soporte_tecnico,tv_streaming,peliculas_streaming,tipo_contrato,factura_electronica,metodo_pago
+1143-NMNQJ,2,85.7,Mujer,No,No,No,Sí,Sí,Fibra óptica,No,No,No,No,No,Sí,Mensual,Sí,Cheque electrónico
+9351-HXDMR,72,110.9,Hombre,No,Sí,No,Sí,Sí,Fibra óptica,Sí,No,Sí,Sí,Sí,Sí,Dos años,Sí,Tarjeta de crédito (automática)
+2782-LFZVW,11,58.95,Mujer,No,No,No,Sí,Sí,DSL,No,No,No,No,No,Sí,Semanal,Sí,Cheque por correo
+7520-HQWJU,66,67.45,Mujer,No,Sí,Sí,Sí,Sí,DSL,Sí,Sí,Sí,No,No,No,Mensual,Sí,Transferencia bancaria (automática)
+1131-ALZWV,24,24.6,Mujer,No,No,No,Sí,Sí,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Sin internet,Un año,No,Transferencia bancaria (automática)
