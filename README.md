@@ -190,18 +190,18 @@ La carpeta [`data/prueba/`](data/prueba/README.md) contiene archivos listos para
 
 Se ejecutó la aplicación tkinter (`app/app_escritorio.py`) con los archivos anteriores mediante `scripts/capturas_app.py`, que registra el resultado de cada escenario y captura la ventana. El registro completo, con las 17 capturas, está en [`docs/evidencias/prueba_app_escritorio.md`](docs/evidencias/prueba_app_escritorio.md).
 
-| Escenario | Entrada | Resultado obtenido | Esperado |
+| Escenario | Entrada | Resultado obtenido | Resultado esperado |
 |---|---|---|---|
-| Predicción por lote | `clientes_test.csv` (1 409) | VP = 301 · FN = 73 · FP = 292 · VN = 743; recall 0.805, precisión 0.508 | Idéntico a `modelo_final.json` ✔ |
-| Predicción por lote | `clientes_muestra.csv` (30) | VP = 7 · FN = 1 · FP = 5 · VN = 17; recall 0.875 | Sin error ✔ |
-| Formato original de IBM | `clientes_formato_ibm.csv` (15) | Traducción automática; recall 1.000, exactitud 0.800 | Sin error ✔ |
-| Caso de riesgo bajo | 5893-PYOLZ | 8.6 %, riesgo bajo; el cliente permaneció | Acierto ✔ |
-| Caso de riesgo alto | 8650-RHRKE | 79.4 %, riesgo alto; el cliente abandonó | Acierto ✔ |
+| Predicción por lote | `clientes_test.csv` (1 409) | VP = 301 · FN = 73 · FP = 292 · VN = 743; recall 0.805, precisión 0.508 | Idéntico a `modelo_final.json`; cumple |
+| Predicción por lote | `clientes_muestra.csv` (30) | VP = 7 · FN = 1 · FP = 5 · VN = 17; recall 0.875 | Procesamiento sin error; cumple |
+| Formato original de IBM | `clientes_formato_ibm.csv` (15) | Traducción automática; recall 1.000, exactitud 0.800 | Procesamiento sin error; cumple |
+| Caso de riesgo bajo | 5893-PYOLZ | 8.6 %, riesgo bajo; el cliente permaneció | Acierto; cumple |
+| Caso de riesgo alto | 8650-RHRKE | 79.4 %, riesgo alto; el cliente abandonó | Acierto; cumple |
 | Falso negativo | 3594-UVONA | 20.1 %, riesgo bajo; el cliente abandonó | Error documentado del modelo |
-| Coherencia del formulario | Internet = «Sin internet» | Servicios dependientes fijados en «Sin internet» | ✔ |
-| Valor no numérico | `error_valor_no_numerico.csv` | «'antiguedad_meses' debe ser un número (filas: 2)» | Rechazo con mensaje ✔ |
-| Categoría inválida | `error_categoria_invalida.csv` | «Valor no válido en 'tipo_contrato': 'Semanal'» | Rechazo con mensaje ✔ |
-| Columna faltante | `error_columna_faltante.csv` | «Faltan columnas obligatorias: metodo_pago» | Rechazo con mensaje ✔ |
+| Coherencia del formulario | Internet = «Sin internet» | Servicios dependientes fijados en «Sin internet» | Cumple |
+| Valor no numérico | `error_valor_no_numerico.csv` | «'antiguedad_meses' debe ser un número (filas: 2)» | Rechazo con mensaje; cumple |
+| Categoría inválida | `error_categoria_invalida.csv` | «Valor no válido en 'tipo_contrato': 'Semanal'» | Rechazo con mensaje; cumple |
+| Columna faltante | `error_columna_faltante.csv` | «Faltan columnas obligatorias: metodo_pago» | Rechazo con mensaje; cumple |
 
 #### Capturas de la aplicación
 

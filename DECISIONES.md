@@ -11,7 +11,7 @@ Cada entrada indica la decisión adoptada y su justificación. Las cifras citada
 
 ## Datos
 
-5. **`servicio_internet = "No"` se traduce como "Sin internet"** (no "No"); en las demás columnas `No internet service` → "Sin internet".
+5. **`servicio_internet = "No"` se traduce como "Sin internet"** (no "No"); en las demás columnas `No internet service` se traduce como "Sin internet".
 6. **`adulto_mayor` (0/1) se convierte a "Sí"/"No"** para tratar todas las binarias igual (one-hot). Las binarias se muestran como casillas en la app.
 7. **`cargo_total` se excluye del modelo.** Correlación 0.9996 con `antiguedad_meses × cargo_mensual`; añadirla cambia las métricas en menos de 0.01 y en sentidos opuestos según el modelo (`resultados/02_prueba_cargo_total.csv`). Es redundante, no fuga en sentido estricto.
 8. **Las 22 filas duplicadas (ignorando `id_cliente`) se conservan:** son clientes distintos con el mismo perfil, no errores de captura.
@@ -24,7 +24,7 @@ Cada entrada indica la decisión adoptada y su justificación. Las cifras citada
 12. **Desbalance: `class_weight="balanced"`** en todos los modelos que lo admiten; en la red neuronal (que no lo admite) se usan pesos por muestra balanceados, que es equivalente.
 13. **Regla de elección de la P1 fijada antes de ver el test:** mayor recall medio; si hay varios a menos de una desviación del líder, se desempata por PR-AUC. Resultado: regresión logística L2.
 14. **Optuna optimiza PR-AUC, no recall:** el recall se puede inflar marcando a casi todos como riesgo; PR-AUC premia ordenar bien y el recall se fija con el umbral. 40 intentos, TPE con semilla 42, CV de 5 folds solo con el entrenamiento.
-15. **Regla de decisión de la P2 fijada de antemano:** el optimizado reemplaza al mejor de la P1 solo si gana en recall con p < 0.05 en Wilcoxon (25 folds) y no pierde significativamente en PR-AUC. Ganó (19 de 25 folds, p = 0.0014) → **modelo final: LightGBM optimizado**. Se declara que la mejora es pequeña (+0.013 de recall) y que el valor p es algo optimista (folds no independientes y Optuna ajustado con los mismos datos).
+15. **Regla de decisión de la P2 fijada de antemano:** el optimizado reemplaza al mejor de la P1 solo si gana en recall con p < 0.05 en Wilcoxon (25 folds) y no pierde significativamente en PR-AUC. Ganó (19 de 25 folds, p = 0.0014); por tanto, **el modelo final es LightGBM optimizado**. Se declara que la mejora es pequeña (+0.013 de recall) y que el valor p es algo optimista (folds no independientes y Optuna ajustado con los mismos datos).
 16. **Umbral 0.5:** con pesos balanceados ya favorece el recall; otro umbral depende del presupuesto de retención (dato que no tenemos). La tabla `resultados/03_umbral.csv` queda como guía.
 17. **`n_jobs=1` en LightGBM** para que los resultados sean exactamente reproducibles.
 18. **Desviaciones estándar poblacionales (ddof = 0)** en todas las tablas de validación cruzada, para que coincidan entre notebooks.

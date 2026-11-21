@@ -24,7 +24,7 @@ Antes de la defensa, cada integrante debe ejecutar los notebooks y poder explica
 Miramos los datos antes de modelar: tamaño (7 043 × 21), faltantes (11 blancos en `cargo_total`, todos de clientes con 0 meses), proporción de abandono (26.5 %). Medimos con la **V de Cramér** qué variables se asocian más al abandono (contrato 0.41; género 0.008) y elegimos 5 hallazgos con gráfico y cifra. Vimos que `cargo_total` es casi `antigüedad × cargo_mensual` (r = 0.9996).
 
 ### 02 · Modelos
-Definimos la métrica (recall), dividimos 80/20 estratificado, armamos el **Pipeline** (imputación + escalado + one-hot) y comparamos los 5 modelos con validación cruzada de 5 folds. Probamos con y sin `cargo_total` (no cambia nada relevante → se excluye). Gana la regresión logística (recall 0.793 ± 0.033). La evaluamos **una sola vez** en el test: recall 0.773, 289 de 374 detectados, 282 falsas alarmas.
+Definimos la métrica (recall), dividimos 80/20 estratificado, armamos el **Pipeline** (imputación + escalado + one-hot) y comparamos los 5 modelos con validación cruzada de 5 folds. Probamos con y sin `cargo_total` (no cambia nada relevante, por lo que se excluye). Gana la regresión logística (recall 0.793 ± 0.033). La evaluamos **una sola vez** en el test: recall 0.773, 289 de 374 detectados, 282 falsas alarmas.
 
 ### 03 · Optimización
 Optuna prueba 40 combinaciones de hiperparámetros de LightGBM y se queda con la de mayor PR-AUC en CV (0.671). Luego comparamos optimizado, original y regresión logística en los **mismos 25 folds** (5 × 5) con **Wilcoxon**. El optimizado gana al original en 25 de 25 folds y a la logística en recall en 19 de 25 (p = 0.0014). Según la regla fijada antes, el modelo final es LightGBM optimizado. Revisamos el umbral y lo dejamos en 0.5.

@@ -35,7 +35,7 @@ Leyenda: **Sí** = cumplido · **Pendiente** = no realizado (se indica el motivo
 | 2.3 | Análisis del umbral de decisión | Sí | `03_optimizacion.ipynb` §3, `resultados/03_umbral.csv` |
 | 2.4 | Comparación fold a fold 5 × 5 (`RepeatedStratifiedKFold`) optimizado vs original vs mejor P1 | Sí | `resultados/03_comparacion_folds.csv` |
 | 2.5 | Prueba de Wilcoxon: folds ganados y valor p | Sí | `resultados/03_wilcoxon.csv` |
-| 2.6 | Conclusión clara mejora vs empate (empate → modelo simple) | Sí | `03_optimizacion.ipynb` §4, `resultados/03_seleccion.json` |
+| 2.6 | Conclusión clara mejora vs empate (en caso de empate, se elige el modelo más simple) | Sí | `03_optimizacion.ipynb` §4, `resultados/03_seleccion.json` |
 | 2.7 | k-means con variables escaladas, k por silueta y codo | Sí | `04_no_supervisado_y_red.ipynb` Parte A |
 | 2.8 | Perfiles con nombre y tasa de abandono calculada después | Sí | `resultados/04_perfiles.csv` |
 | 2.9 | El análisis aporta al problema (qué perfil concentra el riesgo y qué haría la empresa) | Sí | `04_no_supervisado_y_red.ipynb`, `P2_Articulo.md` §4.4 |
@@ -45,7 +45,7 @@ Leyenda: **Sí** = cumplido · **Pendiente** = no realizado (se indica el motivo
 | 2.13 | Importancia por permutación en test | Sí | `resultados/05_importancia_permutacion.csv` |
 | 2.14 | SHAP global y un par de casos individuales | Sí | `resultados/figuras/05_shap_*.png` |
 | 2.15 | Revisión de sesgo: recall y precisión por `genero` y `adulto_mayor`, brechas y correcciones | Sí | `resultados/05_sesgo.csv`, `05_brechas_sesgo.csv` |
-| 2.16 | Modelo final con todo el entrenamiento → `app/modelo.joblib` (Pipeline completo) | Sí | `05_interpretacion.ipynb` §5 |
+| 2.16 | Modelo final con todo el entrenamiento guardado en `app/modelo.joblib` (Pipeline completo) | Sí | `05_interpretacion.ipynb` §5 |
 | 2.17 | `resultados/modelo_final.json` con nombre, métricas, fecha y versiones | Sí | `resultados/modelo_final.json` |
 | 2.18 | `scripts/entrenar.py` reproduce el modelo final | Sí (métricas idénticas, verificado por test) | `scripts/entrenar.py` |
 | 2.19 | Demo en Streamlit o Gradio funcionando | Sí en local (probada con `streamlit.testing`) | `app/app.py` |
