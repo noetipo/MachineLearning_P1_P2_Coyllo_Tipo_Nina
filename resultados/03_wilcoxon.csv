@@ -1,0 +1,13 @@
+modelo_A,modelo_B,metrica,media_A,media_B,diferencia_media,folds_gana_A,folds_gana_B,empates,p_valor,significativo_5pct
+LightGBM optimizado,LightGBM original,recall,0.8087,0.7359,0.0728,25,0,0,1.192707048401316e-05,True
+LightGBM optimizado,LightGBM original,precision,0.5215,0.5423,-0.0208,2,23,0,4.172325134277344e-07,True
+LightGBM optimizado,LightGBM original,roc_auc,0.85,0.8372,0.0128,25,0,0,5.960464477539063e-08,True
+LightGBM optimizado,LightGBM original,pr_auc,0.6699,0.6493,0.0206,25,0,0,5.960464477539063e-08,True
+LightGBM optimizado,Regresión logística L2,recall,0.8087,0.7957,0.013,19,5,1,0.0014165622154194307,True
+LightGBM optimizado,Regresión logística L2,precision,0.5215,0.5209,0.0006,12,13,0,0.7914759516716003,False
+LightGBM optimizado,Regresión logística L2,roc_auc,0.85,0.8445,0.0055,22,3,0,2.562999725341797e-06,True
+LightGBM optimizado,Regresión logística L2,pr_auc,0.6699,0.6573,0.0126,22,3,0,8.344650268554688e-07,True
+LightGBM original,Regresión logística L2,recall,0.7359,0.7957,-0.0598,0,25,0,1.2179318639780734e-05,True
+LightGBM original,Regresión logística L2,precision,0.5423,0.5209,0.0214,23,2,0,8.344650268554688e-07,True
+LightGBM original,Regresión logística L2,roc_auc,0.8372,0.8445,-0.0073,2,23,0,1.4901161193847656e-06,True
+LightGBM original,Regresión logística L2,pr_auc,0.6493,0.6573,-0.008,6,19,0,0.0008081197738647461,True

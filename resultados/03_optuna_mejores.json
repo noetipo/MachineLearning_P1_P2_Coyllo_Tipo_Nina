@@ -1,0 +1,17 @@
+{
+  "mejor_pr_auc_cv": 0.6711,
+  "mejor_intento": 30,
+  "n_intentos": 40,
+  "parametros": {
+    "n_estimators": 600,
+    "learning_rate": 0.018928663564375343,
+    "num_leaves": 32,
+    "max_depth": 2,
+    "min_child_samples": 132,
+    "subsample": 0.630050532322413,
+    "colsample_bytree": 0.8722648734591396,
+    "reg_lambda": 4.478210759792659,
+    "reg_alpha": 0.28373105188382913,
+    "subsample_freq": 1
+  }
+}

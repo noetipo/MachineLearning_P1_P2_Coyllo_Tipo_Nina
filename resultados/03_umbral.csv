@@ -1,0 +1,27 @@
+modelo,umbral,recall,precision,porc_alertas
+Regresión logística L2,0.2,0.9552,0.385,0.6583
+Regresión logística L2,0.25,0.9378,0.4042,0.6157
+Regresión logística L2,0.3,0.9231,0.4238,0.5779
+Regresión logística L2,0.35,0.893,0.4495,0.5272
+Regresión logística L2,0.4,0.8609,0.4707,0.4853
+Regresión logística L2,0.45,0.8268,0.494,0.4441
+Regresión logística L2,0.5,0.7933,0.5193,0.4054
+Regresión logística L2,0.55,0.7619,0.5476,0.3692
+Regresión logística L2,0.6,0.7057,0.5724,0.3271
+Regresión logística L2,0.65,0.6502,0.6007,0.2872
+Regresión logística L2,0.7,0.5873,0.6298,0.2474
+Regresión logística L2,0.75,0.5177,0.6627,0.2073
+Regresión logística L2,0.8,0.4107,0.7123,0.153
+LightGBM optimizado,0.2,0.9512,0.3946,0.6397
+LightGBM optimizado,0.25,0.9298,0.4153,0.5941
+LightGBM optimizado,0.3,0.911,0.4361,0.5543
+LightGBM optimizado,0.35,0.8936,0.4575,0.5183
+LightGBM optimizado,0.4,0.8669,0.4786,0.4807
+LightGBM optimizado,0.45,0.8395,0.5006,0.445
+LightGBM optimizado,0.5,0.8067,0.521,0.4109
+LightGBM optimizado,0.55,0.7599,0.5462,0.3692
+LightGBM optimizado,0.6,0.7057,0.58,0.3229
+LightGBM optimizado,0.65,0.6502,0.6148,0.2806
+LightGBM optimizado,0.7,0.5886,0.6471,0.2414
+LightGBM optimizado,0.75,0.5003,0.6806,0.1951
+LightGBM optimizado,0.8,0.3993,0.7184,0.1475
