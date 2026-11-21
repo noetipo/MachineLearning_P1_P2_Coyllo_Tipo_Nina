@@ -1,0 +1,3 @@
+variable,recall,precision,tasa_alertas
+adulto_mayor,0.1539,0.1136,0.3132
+genero,0.025,0.0563,0.0118

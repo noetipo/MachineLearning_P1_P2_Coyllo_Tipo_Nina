@@ -1,0 +1,5 @@
+variable,grupo,n,tasa_abandono_real,tasa_alertas,recall,precision
+genero,Hombre,722,0.2507,0.4266,0.8177,0.4805
+genero,Mujer,687,0.2809,0.4148,0.7927,0.5368
+adulto_mayor,No,1187,0.2325,0.3715,0.7645,0.4785
+adulto_mayor,Sí,222,0.4414,0.6847,0.9184,0.5921

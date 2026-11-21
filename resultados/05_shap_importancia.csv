@@ -1,0 +1,46 @@
+variable_transformada,shap_abs_medio
+antiguedad_meses,0.5597
+tipo_contrato_Mensual,0.5543
+tipo_contrato_Dos años,0.2652
+servicio_internet_Fibra óptica,0.2474
+seguridad_en_linea_No,0.246
+cargo_mensual,0.1994
+metodo_pago_Cheque electrónico,0.1731
+soporte_tecnico_No,0.1656
+factura_electronica_No,0.1134
+lineas_multiples_No,0.0932
+peliculas_streaming_Sí,0.0923
+respaldo_en_linea_No,0.0709
+tv_streaming_Sí,0.066
+tiene_dependientes_No,0.055
+tipo_contrato_Un año,0.0356
+adulto_mayor_No,0.0294
+servicio_telefonico_No,0.0178
+metodo_pago_Cheque por correo,0.0171
+servicio_internet_Sin internet,0.017
+genero_Hombre,0.0155
+factura_electronica_Sí,0.013
+tv_streaming_No,0.0112
+servicio_internet_DSL,0.009
+tiene_dependientes_Sí,0.0089
+proteccion_dispositivo_No,0.0081
+tiene_pareja_No,0.0076
+lineas_multiples_Sí,0.0056
+respaldo_en_linea_Sí,0.0054
+adulto_mayor_Sí,0.0042
+soporte_tecnico_Sí,0.0033
+seguridad_en_linea_Sí,0.003
+metodo_pago_Transferencia bancaria (automática),0.0029
+proteccion_dispositivo_Sí,0.0028
+peliculas_streaming_No,0.0027
+genero_Mujer,0.0024
+metodo_pago_Tarjeta de crédito (automática),0.0016
+seguridad_en_linea_Sin internet,0.0015
+lineas_multiples_Sin teléfono,0.0015
+tiene_pareja_Sí,0.001
+servicio_telefonico_Sí,0.0007
+tv_streaming_Sin internet,0.0
+peliculas_streaming_Sin internet,0.0
+soporte_tecnico_Sin internet,0.0
+proteccion_dispositivo_Sin internet,0.0
+respaldo_en_linea_Sin internet,0.0

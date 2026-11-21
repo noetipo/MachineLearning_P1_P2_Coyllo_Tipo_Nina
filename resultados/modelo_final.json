@@ -1,0 +1,65 @@
+{
+  "modelo": "LightGBM optimizado",
+  "clase": "LGBMClassifier",
+  "parametros": {
+    "n_estimators": 600,
+    "learning_rate": 0.018928663564375343,
+    "num_leaves": 32,
+    "max_depth": 2,
+    "min_child_samples": 132,
+    "subsample": 0.630050532322413,
+    "colsample_bytree": 0.8722648734591396,
+    "reg_lambda": 4.478210759792659,
+    "reg_alpha": 0.28373105188382913,
+    "subsample_freq": 1,
+    "class_weight": "balanced",
+    "random_state": 42,
+    "n_jobs": 1,
+    "verbose": -1
+  },
+  "umbral": 0.5,
+  "metricas_test": {
+    "recall": 0.8048,
+    "precision": 0.5076,
+    "roc_auc": 0.8482,
+    "pr_auc": 0.6668,
+    "f1": 0.6225,
+    "accuracy": 0.741
+  },
+  "matriz_confusion_test": {
+    "vn": 743,
+    "fp": 292,
+    "fn": 73,
+    "vp": 301
+  },
+  "n_train": 5634,
+  "n_test": 1409,
+  "variables": [
+    "antiguedad_meses",
+    "cargo_mensual",
+    "genero",
+    "adulto_mayor",
+    "tiene_pareja",
+    "tiene_dependientes",
+    "servicio_telefonico",
+    "lineas_multiples",
+    "servicio_internet",
+    "seguridad_en_linea",
+    "respaldo_en_linea",
+    "proteccion_dispositivo",
+    "soporte_tecnico",
+    "tv_streaming",
+    "peliculas_streaming",
+    "tipo_contrato",
+    "factura_electronica",
+    "metodo_pago"
+  ],
+  "fecha": "2026-11-21",
+  "versiones": {
+    "python": "3.13.5",
+    "scikit-learn": "1.9.1",
+    "lightgbm": "4.7.0",
+    "pandas": "3.1.1",
+    "numpy": "2.5.5"
+  }
+}
