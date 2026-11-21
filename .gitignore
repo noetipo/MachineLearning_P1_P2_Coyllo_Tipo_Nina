@@ -1,0 +1,13 @@
+# Referencia del docente (solo consulta)
+_referencia/
+# Entorno y cachés
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+# Empaquetado con PyInstaller
+build/
+dist/
+*.spec
