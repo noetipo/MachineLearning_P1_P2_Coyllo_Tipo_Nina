@@ -1,0 +1,6 @@
+modelo,recall_media,recall_desv,precision_media,precision_desv,roc_auc_media,roc_auc_desv,pr_auc_media,pr_auc_desv,f1_media,f1_desv,accuracy_media,accuracy_desv
+Baseline (clase mayoritaria),0.0,0.0,0.0,0.0,0.5,0.0,0.2654,0.0001,0.0,0.0,0.7346,0.0001
+Regresión logística L2,0.7933,0.0327,0.5194,0.0179,0.8448,0.0122,0.6583,0.019,0.6276,0.0213,0.7503,0.0143
+SVM (kernel RBF),0.7833,0.0371,0.519,0.0112,0.8272,0.0095,0.6076,0.0226,0.6241,0.0178,0.7499,0.0089
+Random Forest,0.7659,0.0168,0.5343,0.0154,0.8431,0.0078,0.6415,0.0223,0.6294,0.0143,0.7606,0.011
+LightGBM,0.7365,0.0421,0.545,0.0101,0.8365,0.0097,0.6459,0.0237,0.6262,0.0213,0.7671,0.0081

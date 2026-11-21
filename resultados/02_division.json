@@ -1,0 +1,26 @@
+{
+  "n_train": 5634,
+  "n_test": 1409,
+  "tasa_train": 0.2654,
+  "tasa_test": 0.2654,
+  "variables_modelo": [
+    "antiguedad_meses",
+    "cargo_mensual",
+    "genero",
+    "adulto_mayor",
+    "tiene_pareja",
+    "tiene_dependientes",
+    "servicio_telefonico",
+    "lineas_multiples",
+    "servicio_internet",
+    "seguridad_en_linea",
+    "respaldo_en_linea",
+    "proteccion_dispositivo",
+    "soporte_tecnico",
+    "tv_streaming",
+    "peliculas_streaming",
+    "tipo_contrato",
+    "factura_electronica",
+    "metodo_pago"
+  ]
+}

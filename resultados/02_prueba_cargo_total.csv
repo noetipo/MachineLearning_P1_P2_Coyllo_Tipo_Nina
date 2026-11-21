@@ -1,0 +1,5 @@
+modelo,con_cargo_total,recall,roc_auc,pr_auc
+Regresión logística L2,False,0.7933,0.8448,0.6583
+Regresión logística L2,True,0.8013,0.846,0.66
+LightGBM,False,0.7365,0.8365,0.6459
+LightGBM,True,0.7304,0.8374,0.6456
