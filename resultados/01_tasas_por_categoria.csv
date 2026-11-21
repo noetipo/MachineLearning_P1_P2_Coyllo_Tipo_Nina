@@ -1,0 +1,44 @@
+variable,categoria,n,tasa_abandono
+genero,Hombre,3555,0.2616
+genero,Mujer,3488,0.2692
+adulto_mayor,No,5901,0.2361
+adulto_mayor,Sí,1142,0.4168
+tiene_pareja,No,3641,0.3296
+tiene_pareja,Sí,3402,0.1966
+tiene_dependientes,No,4933,0.3128
+tiene_dependientes,Sí,2110,0.1545
+servicio_telefonico,No,682,0.2493
+servicio_telefonico,Sí,6361,0.2671
+lineas_multiples,No,3390,0.2504
+lineas_multiples,Sin teléfono,682,0.2493
+lineas_multiples,Sí,2971,0.2861
+servicio_internet,DSL,2421,0.1896
+servicio_internet,Fibra óptica,3096,0.4189
+servicio_internet,Sin internet,1526,0.074
+seguridad_en_linea,No,3498,0.4177
+seguridad_en_linea,Sin internet,1526,0.074
+seguridad_en_linea,Sí,2019,0.1461
+respaldo_en_linea,No,3088,0.3993
+respaldo_en_linea,Sin internet,1526,0.074
+respaldo_en_linea,Sí,2429,0.2153
+proteccion_dispositivo,No,3095,0.3913
+proteccion_dispositivo,Sin internet,1526,0.074
+proteccion_dispositivo,Sí,2422,0.225
+soporte_tecnico,No,3473,0.4164
+soporte_tecnico,Sin internet,1526,0.074
+soporte_tecnico,Sí,2044,0.1517
+tv_streaming,No,2810,0.3352
+tv_streaming,Sin internet,1526,0.074
+tv_streaming,Sí,2707,0.3007
+peliculas_streaming,No,2785,0.3368
+peliculas_streaming,Sin internet,1526,0.074
+peliculas_streaming,Sí,2732,0.2994
+tipo_contrato,Dos años,1695,0.0283
+tipo_contrato,Mensual,3875,0.4271
+tipo_contrato,Un año,1473,0.1127
+factura_electronica,No,2872,0.1633
+factura_electronica,Sí,4171,0.3357
+metodo_pago,Cheque electrónico,2365,0.4529
+metodo_pago,Cheque por correo,1612,0.1911
+metodo_pago,Tarjeta de crédito (automática),1522,0.1524
+metodo_pago,Transferencia bancaria (automática),1544,0.1671

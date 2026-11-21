@@ -1,0 +1,17 @@
+variable,v_cramer
+tipo_contrato,0.41
+seguridad_en_linea,0.347
+soporte_tecnico,0.343
+servicio_internet,0.322
+metodo_pago,0.303
+respaldo_en_linea,0.292
+proteccion_dispositivo,0.282
+peliculas_streaming,0.231
+tv_streaming,0.231
+factura_electronica,0.191
+tiene_dependientes,0.164
+adulto_mayor,0.15
+tiene_pareja,0.15
+lineas_multiples,0.04
+servicio_telefonico,0.011
+genero,0.008

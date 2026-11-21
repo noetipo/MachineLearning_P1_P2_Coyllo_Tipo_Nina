@@ -1,0 +1,14 @@
+{
+  "filas": 7043,
+  "columnas": 21,
+  "faltantes_cargo_total": 11,
+  "blancos_TotalCharges_en_crudo": 11,
+  "antiguedad_de_los_faltantes": [
+    0
+  ],
+  "ids_duplicados": 0,
+  "filas_duplicadas_sin_id": 22,
+  "n_abandona": 1869,
+  "n_no_abandona": 5174,
+  "tasa_abandono": 0.2654
+}
