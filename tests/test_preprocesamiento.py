@@ -39,7 +39,7 @@ def test_todo_el_preprocesamiento_esta_dentro_del_pipeline():
 
 
 def test_escalado_aprendido_solo_con_datos_de_ajuste(df):
-    """La media del escalador debe ser la del subconjunto con que se ajusta (no la global)."""
+    """El escalador aprende la media del subconjunto de ajuste, no la global."""
     X, _ = separar_X_y(df)
     sub = X.iloc[:500]
     prep = construir_preprocesador().fit(sub)

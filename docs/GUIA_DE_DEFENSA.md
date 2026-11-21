@@ -1,8 +1,8 @@
-# Guía de estudio para la defensa
+# Guía de estudio para la sustentación
 
-Cada integrante puede recibir preguntas sobre **cualquier parte** del trabajo. Esta guía resume, con nuestras cifras reales, qué se hizo, por qué y cómo explicarlo con palabras simples. Todas las cifras están en `resultados/`.
+Cada integrante puede recibir preguntas sobre **cualquier parte** del trabajo. Esta guía resume, con las cifras obtenidas, qué se hizo, por qué y cómo explicarlo con palabras simples. Todas las cifras están en `resultados/`.
 
-> **Importante:** el código y los textos se generaron con herramientas de inteligencia artificial generativa. Antes de la defensa, cada integrante debe abrir los notebooks, ejecutarlos y poder explicar cada paso sin leer.
+Antes de la defensa, cada integrante debe ejecutar los notebooks y poder explicar cada paso sin apoyo escrito.
 
 ---
 
@@ -11,8 +11,8 @@ Cada integrante puede recibir preguntas sobre **cualquier parte** del trabajo. E
 - **Problema:** predecir qué clientes de una empresa de telecomunicaciones cancelarán su servicio (clasificación binaria), para ofrecerles retención a tiempo.
 - **Datos:** Telco Customer Churn de IBM, 7 043 clientes, 21 columnas, **26.5 % abandona**. Empresa ficticia.
 - **Métrica principal:** recall (detectar a los que se van), más ROC-AUC y PR-AUC.
-- **Producto 1:** mejor modelo = regresión logística L2 (recall test 0.773).
-- **Producto 2:** LightGBM optimizado con Optuna gana a la regresión logística por poco (+0.013 de recall, p = 0.0014). **Modelo final en el test: recall 0.805, precisión 0.508, ROC-AUC 0.848, PR-AUC 0.667** (detecta 301 de 374 que se van).
+- **P1:** mejor modelo = regresión logística L2 (recall test 0.773).
+- **P2:** LightGBM optimizado con Optuna gana a la regresión logística por poco (+0.013 de recall, p = 0.0014). **Modelo final en el test: recall 0.805, precisión 0.508, ROC-AUC 0.848, PR-AUC 0.667** (detecta 301 de 374 que se van).
 - **Hallazgos:** contrato mensual (42.7 % de abandono vs 2.8 % en dos años), clientes nuevos (47.4 % en el primer año), fibra óptica (41.9 %), cheque electrónico (45.3 %), sin servicios de protección (≈ 42 %).
 - **Perfil de riesgo (k-means):** "nuevos con contrato mensual", 45.4 % de abandono.
 - **Interpretación:** antigüedad y tipo de contrato dominan; el género no influye.
@@ -73,7 +73,7 @@ Evaluamos el modelo final en el test, medimos qué variables usa (permutación y
 6. **¿Por qué el baseline es "clase mayoritaria" y no "estratificado"?**
    Porque es la referencia más simple y la que mejor muestra que la exactitud engaña: 73.5 % de exactitud sin detectar a nadie.
 
-7. **¿Por qué ganó la regresión logística en el Producto 1, si es el modelo más simple?**
+7. **¿Por qué ganó la regresión logística en la P1, si es el modelo más simple?**
    Porque aquí las relaciones son casi aditivas: contrato, antigüedad, internet y pago suman o restan riesgo de forma bastante independiente. Además, Optuna confirmó esto: los mejores árboles de LightGBM tienen profundidad 2, es decir, un modelo casi aditivo.
 
 8. **¿Por qué Optuna optimizó PR-AUC y no recall, si su métrica es recall?**
@@ -95,7 +95,7 @@ Evaluamos el modelo final en el test, medimos qué variables usa (permutación y
     Bajarlo a 0.3 sube el recall a 0.911 pero alerta al 55 % de los clientes (vs 41 % con 0.5). La decisión depende de cuántos clientes puede contactar la empresa, dato que no tenemos. Con pesos balanceados, 0.5 ya favorece el recall. Dejamos la tabla (`resultados/03_umbral.csv`) para que la empresa elija.
 
 14. **¿Cuántas veces usaron el test?**
-    Para el modelo del Producto 1 una vez (notebook 02), y para el modelo final una vez (notebook 05). Ninguna decisión de modelado se tomó mirando el test: la elección se hizo con validación cruzada en el entrenamiento.
+    Para el modelo de la P1 una vez (notebook 02), y para el modelo final una vez (notebook 05). Ninguna decisión de modelado se tomó mirando el test: la elección se hizo con validación cruzada en el entrenamiento.
 
 15. **¿Qué significa una precisión de 0.508?**
     Que de cada dos clientes alertados, aproximadamente uno se iba de verdad. Es el precio de un recall alto. Como la acción es ofrecer un beneficio, una falsa alarma cuesta poco.
@@ -131,7 +131,7 @@ Evaluamos el modelo final en el test, medimos qué variables usa (permutación y
     Calcular el riesgo de todos sus clientes cada mes, contactar primero a los de riesgo alto (especialmente nuevos con contrato mensual, fibra y cheque electrónico) con ofertas concretas: pasar a contrato anual con descuento, pago automático, soporte técnico o seguridad en línea gratis unos meses. Y medir con un grupo de control si la retención funciona de verdad.
 
 26. **¿Cómo usaron la IA generativa?**
-    El código, los análisis y los borradores se generaron con herramientas de inteligencia artificial generativa a partir de nuestras indicaciones. Lo declaramos en el README y en los informes. Nuestra responsabilidad es revisar, ejecutar y entender todo, que es lo que estamos defendiendo.
+    Como herramienta de apoyo para escribir código y redactar borradores. Todas las cifras se obtuvieron ejecutando los notebooks y fueron verificadas por el equipo; el uso se declara en los informes.
 
 ## 5. Cifras para memorizar
 

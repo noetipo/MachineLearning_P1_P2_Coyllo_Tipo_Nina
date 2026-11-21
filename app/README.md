@@ -1,15 +1,15 @@
 # Aplicaciones
 
-Hay dos aplicaciones y ambas usan la misma lógica (`src/churn/prediccion.py`) y el mismo modelo (`app/modelo.joblib`, el Pipeline completo de LightGBM optimizado).
+Ambas aplicaciones comparten la lógica de predicción (`src/churn/prediccion.py`) y el modelo serializado (`app/modelo.joblib`, Pipeline completo de LightGBM optimizado).
 
-| App | Archivo | Para qué |
+| Aplicación | Archivo | Funcionalidad |
 |---|---|---|
-| **Escritorio (principal)** | `app_escritorio.py` | Predicción individual, predicción por lote desde un CSV con exportación, y ficha del modelo. tkinter + ttk. |
-| **Demo web** | `app.py` | Predicción individual en el navegador (Streamlit). Es la demo que pide la guía del Producto 2. |
+| Escritorio (principal) | `app_escritorio.py` | Predicción individual con casos de prueba, predicción por lote desde CSV con comparación frente al valor real y exportación, e información del modelo (tkinter) |
+| Demostración web | `app.py` | Predicción individual en el navegador (Streamlit), requerida en la P2 |
 
-## Ejecutar en local
+## Ejecución local
 
-Desde la **raíz del proyecto**, con el entorno virtual creado (ver el README principal):
+Desde la raíz del proyecto, con el entorno virtual creado:
 
 ```bash
 # App de escritorio
@@ -21,7 +21,7 @@ Desde la **raíz del proyecto**, con el entorno virtual creado (ver el README pr
 
 Si `app/modelo.joblib` no existe o no carga, regénerelo con `python scripts/entrenar.py`. El modelo solo carga de forma fiable con las versiones de `requirements.txt` (scikit-learn 1.9.1 y lightgbm 4.7.0).
 
-El manual completo de la app de escritorio está en [`docs/MANUAL_APP.md`](../docs/MANUAL_APP.md).
+El manual de la aplicación de escritorio está en [`docs/MANUAL_APP.md`](../docs/MANUAL_APP.md) y los datos para probarla, en [`data/prueba/`](../data/prueba/README.md).
 
 ## Publicar la demo en Streamlit Community Cloud
 
@@ -29,6 +29,6 @@ El manual completo de la app de escritorio está en [`docs/MANUAL_APP.md`](../do
 2. Entre a <https://share.streamlit.io> con su cuenta de GitHub y pulse **Create app** → *Deploy a public app from GitHub*.
 3. Elija el repositorio, la rama (`main`) y como **Main file path** escriba `app/app.py`.
 4. En **Advanced settings**, elija **Python 3.13** (la versión con la que se entrenó el modelo). Streamlit instalará `app/requirements.txt`, que está junto al archivo principal.
-5. Pulse **Deploy**. Cuando termine, copie la URL (`https://<nombre>.streamlit.app`) y péguela en el README principal, en lugar de `[PENDIENTE: enlace de Streamlit Community Cloud]`.
+5. Pulse **Deploy**. Cuando termine, copie la URL (`https://<nombre>.streamlit.app`) y agréguela al README principal.
 
 Si el despliegue falla al cargar el modelo, casi siempre es por una versión distinta de scikit-learn o lightgbm: revise el registro (*Manage app → Logs*) y que `app/requirements.txt` tenga las versiones fijadas.

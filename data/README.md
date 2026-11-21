@@ -1,17 +1,17 @@
-# Datos · Telco Customer Churn
+# Datos: Telco Customer Churn
 
 ## Fuente
 
-- **Dataset:** *Telco Customer Churn*, dataset de muestra publicado por IBM sobre una empresa de telecomunicaciones **ficticia**.
+- **Conjunto de datos:** *Telco Customer Churn*, publicado por IBM como conjunto de muestra sobre una empresa de telecomunicaciones ficticia.
 - **Archivo:** `Telco-Customer-Churn.csv` (970 457 bytes; 7 043 filas y 21 columnas).
 - **Descargado de:** <https://raw.githubusercontent.com/IBM/telco-customer-churn-on-icp4d/master/data/Telco-Customer-Churn.csv> (repositorio `IBM/telco-customer-churn-on-icp4d`).
 - **Copia equivalente:** Kaggle, `blastchar/telco-customer-churn` (archivo `WA_Fn-UseC_-Telco-Customer-Churn.csv`).
 - **SHA-256 del archivo guardado:** `16320c9c1ec72448db59aa0a26a0b95401046bef5d02fd3aeb906448e3055e91`
 - **Licencia:** Apache License 2.0 (según el repositorio de IBM, creado en 2019).
 
-El archivo se guarda **sin modificar**. La traducción al español y la limpieza se hacen en memoria (`src/churn/datos.py` y la celda de carga de cada notebook).
+El archivo se conserva sin modificaciones. La traducción al español y la limpieza se hacen en memoria (`src/churn/datos.py` y la celda de carga de cada notebook).
 
-## Cómo se obtienen
+## Obtención
 
 Los notebooks leen primero `data/Telco-Customer-Churn.csv`; si no existe (por ejemplo, en Google Colab) lo descargan de la URL anterior. Para descargarlo a mano:
 
@@ -51,7 +51,11 @@ curl -L -o data/Telco-Customer-Churn.csv https://raw.githubusercontent.com/IBM/t
 - Sin identificadores duplicados. 22 filas iguales si se ignora el identificador (clientes distintos con el mismo perfil; se conservan).
 - Abandono: 1 869 de 7 043 clientes (26.5 %).
 
-## Qué se excluyó del modelo y por qué
+## Variables excluidas del modelo
 
-- **`id_cliente`:** es un identificador; no describe al cliente y solo permitiría memorizar.
+- **`id_cliente`:** identificador sin contenido descriptivo.
 - **`cargo_total`:** correlación de 0.9996 con `antiguedad_meses × cargo_mensual`. Es redundante y añadirla no mejora el modelo de forma consistente (`resultados/02_prueba_cargo_total.csv`). No es fuga de datos en sentido estricto, porque se conoce al momento de predecir.
+
+## Datos de prueba
+
+La subcarpeta [`prueba/`](prueba/README.md) contiene archivos derivados del conjunto de prueba para verificar el modelo y la aplicación de escritorio.

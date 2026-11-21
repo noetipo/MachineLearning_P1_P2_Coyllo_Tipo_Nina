@@ -1,7 +1,7 @@
-"""Los 5 notebooks se ejecutan de principio a fin sin errores.
+"""Ejecución completa de los cinco notebooks.
 
-Se ejecutan en una copia temporal del proyecto (data/ + notebooks/) para no
-sobrescribir resultados/ ni app/modelo.joblib del repositorio.
+Se ejecutan sobre una copia temporal de data/ y notebooks/ para no
+sobrescribir resultados/ ni app/modelo.joblib.
 """
 import json
 import shutil
@@ -30,7 +30,7 @@ def test_notebooks_corren_en_orden(copia, raiz):
         nb = nbformat.read(copia / "notebooks" / n, as_version=4)
         NotebookClient(nb, timeout=1800, kernel_name="python3",
                        resources={"metadata": {"path": str(copia / "notebooks")}}).execute()
-    # Los resultados de la copia deben coincidir con los guardados en el repositorio.
+    # Las métricas regeneradas deben coincidir con las almacenadas.
     nuevo = json.loads((copia / "resultados" / "modelo_final.json").read_text(encoding="utf-8"))
     guardado = json.loads((raiz / "resultados" / "modelo_final.json").read_text(encoding="utf-8"))
     assert nuevo["metricas_test"] == guardado["metricas_test"]

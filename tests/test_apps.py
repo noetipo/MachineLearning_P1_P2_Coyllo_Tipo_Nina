@@ -12,7 +12,7 @@ def hay_pantalla() -> tuple[bool, str]:
     try:
         r = subprocess.run([sys.executable, "-c", SONDA], capture_output=True, text=True, timeout=20)
     except subprocess.TimeoutExpired:
-        return False, "tkinter no respondió al crear una ventana (¿pantalla bloqueada o sin sesión gráfica?)"
+        return False, "tkinter no respondió al crear una ventana (sin sesión gráfica)"
     if r.returncode != 0 or "ok" not in r.stdout:
         return False, (r.stderr.strip().splitlines() or ["tkinter no disponible"])[-1]
     return True, ""
@@ -29,7 +29,7 @@ def test_app_escritorio_humo(raiz):
 
 
 def test_app_escritorio_importa_sin_abrir_ventana():
-    """La lógica de la app no depende de la pantalla: importar el módulo no crea ventanas."""
+    """Importar el módulo de la aplicación no crea ventanas."""
     import app_escritorio
     assert app_escritorio.TITULO
     assert len(app_escritorio.GRUPOS) == 3

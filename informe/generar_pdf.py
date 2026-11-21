@@ -1,4 +1,4 @@
-"""Convierte informe/Producto1.md y Producto2.md a PDF sin pandoc.
+"""Convierte informe/P1_Informe_Tecnico.md y P2_Articulo.md a PDF sin pandoc.
 
 Markdown → HTML (librería `markdown`) → PDF (Google Chrome en modo headless).
 Uso:  python informe/generar_pdf.py
@@ -54,5 +54,5 @@ def convertir(nombre):
 
 
 if __name__ == "__main__":
-    for n in ["Producto1", "Producto2"]:
+    for n in ["P1_Informe_Tecnico", "P2_Articulo"]:
         convertir(n)

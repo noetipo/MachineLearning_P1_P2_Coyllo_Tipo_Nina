@@ -1,7 +1,8 @@
-"""Preprocesamiento: todo vive dentro de un Pipeline para evitar fuga de datos.
+"""Preprocesamiento encapsulado en un Pipeline de scikit-learn.
 
-Las medianas, modas, medias y categorías se aprenden SOLO con los datos con que
-se ajusta el Pipeline (en validación cruzada, con los folds de entrenamiento).
+Medianas, modas, medias y categorías se estiman únicamente con los datos con
+los que se ajusta el Pipeline; en validación cruzada, con los folds de
+entrenamiento, lo que evita la fuga de datos.
 """
 from __future__ import annotations
 
@@ -33,7 +34,7 @@ def construir_preprocesador(numericas=None, categoricas=None) -> ColumnTransform
 
 
 def construir_pipeline(modelo, numericas=None, categoricas=None) -> Pipeline:
-    """Pipeline completo: preprocesamiento + modelo."""
+    """Pipeline completo: preprocesamiento seguido del estimador."""
     return Pipeline([
         ("prep", construir_preprocesador(numericas, categoricas)),
         ("modelo", modelo),

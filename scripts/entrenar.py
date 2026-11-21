@@ -1,11 +1,12 @@
-"""Reproduce el entrenamiento del modelo final usando src/churn/.
+"""Reproduce el entrenamiento del modelo final.
 
 Uso:
-    python scripts/entrenar.py                      # regenera app/modelo.joblib y resultados/modelo_final.json
-    python scripts/entrenar.py --salida-modelo X --salida-info Y   # escribe en otras rutas
+    python scripts/entrenar.py
+    python scripts/entrenar.py --salida-modelo RUTA --salida-info RUTA
 
-Lee la elección del modelo de resultados/03_seleccion.json (generado por el notebook 03).
-Reproduce exactamente el notebook 05: misma división 80/20 (semilla 42) y mismo Pipeline.
+La configuración del modelo se lee de resultados/03_seleccion.json (notebook 03).
+Se emplean la misma partición 80/20 (semilla 42) y el mismo Pipeline del
+notebook 05, por lo que las métricas obtenidas son idénticas.
 """
 from __future__ import annotations
 

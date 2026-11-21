@@ -1,11 +1,11 @@
 ---
 title: "¿Quién se va? Alerta temprana de abandono de clientes con boosting optimizado, perfiles no supervisados e interpretación"
-subtitle: "Producto 2 · Artículo"
+subtitle: "Práctica 2 (P2) · Artículo"
 ---
 
 # ¿Quién se va? Alerta temprana de abandono de clientes con boosting optimizado, perfiles no supervisados e interpretación
 
-**Producto 2 · Artículo**
+**Práctica 2 (P2) · Artículo**
 
 **Autores:** Leydy Mayumy Coyllo Mamani · Noe Wilber Tipo Mamani · Jose Alfonso Nina Condori
 **Curso:** Machine Learning · Maestría en Ciencia de Datos e Inteligencia Artificial · Escuela de Posgrado, Universidad Nacional de Juliaca (EPG UNAJ)
@@ -15,7 +15,7 @@ subtitle: "Producto 2 · Artículo"
 
 ## Resumen
 
-El abandono de clientes es una pérdida importante de ingresos para las empresas de telecomunicaciones. Este trabajo construye un sistema de alerta temprana con el dataset Telco Customer Churn de IBM (7 043 clientes, 26.5 % de abandono). Partiendo de una regresión logística L2, el mejor modelo del Producto 1, optimizamos LightGBM con Optuna (40 intentos) y lo comparamos con 25 particiones de validación cruzada y la prueba de Wilcoxon. El modelo optimizado mejora a su versión por defecto en los 25 folds y a la regresión logística en recall en 19 de 25 folds (+0.013; p = 0.0014): una mejora real, pero pequeña. En el test alcanza un recall de 0.805, ROC-AUC de 0.848 y PR-AUC de 0.667. Un análisis con k-means sin usar la etiqueta revela que el perfil de clientes nuevos con contrato mensual concentra el riesgo (45.4 % de abandono). Una red neuronal no los supera. La importancia por permutación y SHAP muestran que la antigüedad y el tipo de contrato dominan las predicciones; el género no influye. Las alertas son más frecuentes entre adultos mayores, en parte porque abandonan más. El modelo se entrega en una aplicación de escritorio y una demo web.
+El abandono de clientes es una pérdida importante de ingresos para las empresas de telecomunicaciones. Este trabajo construye un sistema de alerta temprana con el dataset Telco Customer Churn de IBM (7 043 clientes, 26.5 % de abandono). Partiendo de una regresión logística L2, el mejor modelo de la P1, optimizamos LightGBM con Optuna (40 intentos) y lo comparamos con 25 particiones de validación cruzada y la prueba de Wilcoxon. El modelo optimizado mejora a su versión por defecto en los 25 folds y a la regresión logística en recall en 19 de 25 folds (+0.013; p = 0.0014): una mejora real, pero pequeña. En el test alcanza un recall de 0.805, ROC-AUC de 0.848 y PR-AUC de 0.667. Un análisis con k-means sin usar la etiqueta revela que el perfil de clientes nuevos con contrato mensual concentra el riesgo (45.4 % de abandono). Una red neuronal no los supera. La importancia por permutación y SHAP muestran que la antigüedad y el tipo de contrato dominan las predicciones; el género no influye. Las alertas son más frecuentes entre adultos mayores, en parte porque abandonan más. El modelo se entrega en una aplicación de escritorio y una demo web.
 
 **Palabras clave:** abandono de clientes, clasificación desbalanceada, LightGBM, Optuna, prueba de Wilcoxon, k-means, SHAP, sesgo algorítmico.
 
@@ -23,9 +23,9 @@ El abandono de clientes es una pérdida importante de ingresos para las empresas
 
 Cuando un cliente cancela su servicio, la empresa pierde todo su ingreso futuro. Si es posible identificar con anticipación a quienes están por irse, se les puede ofrecer una acción de retención (un descuento, un cambio de contrato, soporte técnico) a un costo mucho menor que el de reemplazarlos. El objetivo de este proyecto es responder: **con los datos actuales de un cliente, ¿qué clientes cancelarán su servicio?**
 
-En el Producto 1 analizamos los datos y comparamos cinco modelos con validación cruzada. La **regresión logística L2** fue la mejor (recall 0.793 en validación cruzada y 0.773 en el test). Este artículo continúa ese trabajo con cuatro preguntas:
+En la P1 analizamos los datos y comparamos cinco modelos con validación cruzada. La **regresión logística L2** fue la mejor (recall 0.793 en validación cruzada y 0.773 en el test). Este artículo continúa ese trabajo con cuatro preguntas:
 
-1. ¿La optimización de hiperparámetros de un modelo de *boosting* mejora de forma **real** (y no por azar) al mejor modelo del Producto 1?
+1. ¿La optimización de hiperparámetros de un modelo de *boosting* mejora de forma **real** (y no por azar) al mejor modelo de la P1?
 2. ¿Existen **perfiles** de clientes, descubiertos sin usar la etiqueta, que concentren el riesgo?
 3. ¿Aporta una **red neuronal**?
 4. ¿**Qué variables** usa el modelo final y se equivoca más con algún **grupo** de clientes?
@@ -36,9 +36,9 @@ En el Producto 1 analizamos los datos y comparamos cinco modelos con validación
 
 Dataset **Telco Customer Churn** (IBM, 2019): 7 043 clientes de una empresa de telecomunicaciones ficticia y 21 columnas (demografía, antigüedad, servicios, contrato, pago, cargos y la variable objetivo). Abandonan **1 869 clientes (26.5 %)**. Hay 11 valores faltantes en `cargo_total`, todos de clientes con 0 meses de antigüedad. Las columnas y categorías se tradujeron al español (`data/README.md`).
 
-Se usan 18 variables: 2 numéricas (`antiguedad_meses`, `cargo_mensual`) y 16 categóricas. Se excluyen `id_cliente` (identificador) y `cargo_total`, que tiene una correlación de 0.9996 con antigüedad × cargo mensual y no mejora el modelo de forma consistente (Producto 1).
+Se usan 18 variables: 2 numéricas (`antiguedad_meses`, `cargo_mensual`) y 16 categóricas. Se excluyen `id_cliente` (identificador) y `cargo_total`, que tiene una correlación de 0.9996 con antigüedad × cargo mensual y no mejora el modelo de forma consistente (P1).
 
-Hallazgos principales del análisis exploratorio (Producto 1): el abandono es de 42.7 % con contrato mensual frente a 2.8 % con contrato de dos años; 47.4 % en el primer año de antigüedad frente a 9.5 % después de cuatro años; 41.9 % con fibra óptica; 45.3 % con pago por cheque electrónico.
+Hallazgos principales del análisis exploratorio (P1): el abandono es de 42.7 % con contrato mensual frente a 2.8 % con contrato de dos años; 47.4 % en el primer año de antigüedad frente a 9.5 % después de cuatro años; 41.9 % con fibra óptica; 45.3 % con pago por cheque electrónico.
 
 ## 3. Método
 
@@ -99,7 +99,7 @@ El mejor intento (n.º 30 de 40) alcanzó un **PR-AUC de 0.671** en validación 
 
 | Modelo | Recall | Precisión | ROC-AUC | PR-AUC | VP | FN | FP |
 |---|---|---|---|---|---|---|---|
-| Regresión logística L2 (Producto 1) | 0.773 | 0.506 | 0.839 | 0.628 | 289 | 85 | 282 |
+| Regresión logística L2 (P1) | 0.773 | 0.506 | 0.839 | 0.628 | 289 | 85 | 282 |
 | **LightGBM optimizado (final)** | **0.805** | 0.508 | **0.848** | **0.667** | **301** | **73** | 292 |
 
 *Fuentes: `resultados/02_test_mejor_modelo.json` y `resultados/modelo_final.json`.*
@@ -191,9 +191,9 @@ La red **empata** con la regresión logística en recall (−0.007; p = 0.097) p
 6. **No hay sesgo relevante por género; sí más alertas para adultos mayores**, en parte justificadas por su mayor abandono. El modelo debe usarse solo para ofrecer retención y vigilarse por grupo.
 7. El modelo está disponible en una **aplicación de escritorio** (predicción individual y por lote) y en una **demo web** en Streamlit, y se reproduce con `python scripts/entrenar.py`.
 
-## Uso de inteligencia artificial generativa
+## Declaración sobre el uso de herramientas de inteligencia artificial
 
-El código, los análisis y los borradores de este artículo se generaron con herramientas de inteligencia artificial generativa a partir de las indicaciones del equipo. Todas las cifras provienen de la ejecución real de los notebooks del repositorio y se contrastaron con los archivos de `resultados/`. El equipo es responsable de revisar, ejecutar y poder explicar todo el contenido antes de entregarlo.
+En la elaboración de este artículo se emplearon herramientas de inteligencia artificial generativa como apoyo en la escritura de código y en la redacción de borradores. Los resultados numéricos proceden de la ejecución de los notebooks del repositorio y fueron verificados por el equipo, que asume la responsabilidad del contenido.
 
 ## Referencias
 

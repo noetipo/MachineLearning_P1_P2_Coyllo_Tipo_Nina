@@ -1,8 +1,8 @@
-"""Carga, limpieza y traducción al español del dataset Telco Customer Churn.
+"""Carga, limpieza y traducción al español del conjunto Telco Customer Churn.
 
-El CSV original no se modifica: toda la traducción ocurre en memoria.
-La imputación de valores faltantes NO se hace aquí; va dentro del Pipeline
-(ver ``preprocesamiento.py``) para no filtrar información del test.
+El archivo CSV original no se modifica; la traducción se realiza en memoria.
+La imputación de valores faltantes se efectúa dentro del Pipeline
+(``preprocesamiento.py``) para evitar fuga de información desde el test.
 """
 from __future__ import annotations
 
@@ -70,14 +70,13 @@ CATEGORICAS = [
     "soporte_tecnico", "tv_streaming", "peliculas_streaming",
     "tipo_contrato", "factura_electronica", "metodo_pago",
 ]
-# cargo_total se excluye del modelo por redundancia (≈ antigüedad × cargo mensual).
-# La evidencia está en notebooks/02_modelos.ipynb y en DECISIONES.md.
+# cargo_total se excluye por redundancia: r = 0.9996 con antigüedad × cargo mensual.
 EXCLUIDAS = [ID, "cargo_total"]
 VARIABLES_MODELO = NUMERICAS + CATEGORICAS
 
 
 def cargar_crudo(ruta: str | Path | None = None) -> pd.DataFrame:
-    """Lee el CSV original (local si existe; si no, desde la URL pública)."""
+    """Lee el CSV original desde disco o, en su defecto, desde la URL pública."""
     ruta = Path(ruta) if ruta is not None else RUTA_CSV
     if ruta.exists():
         return pd.read_csv(ruta)
@@ -85,9 +84,9 @@ def cargar_crudo(ruta: str | Path | None = None) -> pd.DataFrame:
 
 
 def traducir(df: pd.DataFrame) -> pd.DataFrame:
-    """Renombra columnas y traduce categorías. Acepta columnas en inglés o ya en español.
+    """Renombra columnas y traduce categorías (acepta columnas en inglés o español).
 
-    No imputa: los blancos de ``cargo_total`` quedan como NaN.
+    Los valores en blanco de ``cargo_total`` se convierten en NaN sin imputar.
     """
     df = df.rename(columns=MAPEO_COLUMNAS).copy()
     for col in df.columns:
@@ -101,7 +100,7 @@ def traducir(df: pd.DataFrame) -> pd.DataFrame:
             continue
         if df[col].dtype == object or pd.api.types.is_string_dtype(df[col]):
             df[col] = df[col].map(lambda v: MAPEO_VALORES.get(v, v) if isinstance(v, str) else v)
-            if col == "servicio_internet":  # en esta columna "No" significa "sin internet"
+            if col == "servicio_internet":  # aquí "No" equivale a "Sin internet"
                 df[col] = df[col].replace({"No": "Sin internet"})
     if "cargo_total" in df.columns:
         df["cargo_total"] = pd.to_numeric(
@@ -121,5 +120,5 @@ def cargar_datos(ruta: str | Path | None = None) -> pd.DataFrame:
 
 
 def separar_X_y(df: pd.DataFrame):
-    """Devuelve (X, y) con solo las variables que usa el modelo."""
+    """Devuelve (X, y) con las variables predictoras del modelo."""
     return df[VARIABLES_MODELO].copy(), df[OBJETIVO].astype(int).copy()

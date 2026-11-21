@@ -1,9 +1,10 @@
-"""Demo web en Streamlit · Alerta temprana de abandono de clientes.
+"""Demostración web (Streamlit) de la alerta temprana de abandono de clientes.
 
-Ejecutar desde la raíz del proyecto:
+Ejecución, desde la raíz del proyecto:
     streamlit run app/app.py
 
-Usa la misma lógica que la app de escritorio (src/churn/prediccion.py).
+Comparte la lógica de predicción con la aplicación de escritorio
+(src/churn/prediccion.py).
 """
 from __future__ import annotations
 
@@ -19,7 +20,7 @@ from churn.prediccion import (  # noqa: E402
     ErrorEntrada, cargar_info, cargar_modelo, opciones_categoricas, predecir_cliente,
 )
 
-st.set_page_config(page_title="Alerta de abandono de clientes", page_icon="📉", layout="wide")
+st.set_page_config(page_title="Alerta de abandono de clientes", layout="wide")
 
 
 @st.cache_resource

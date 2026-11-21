@@ -1,11 +1,11 @@
 ---
 title: "Alerta temprana de abandono de clientes en una empresa de telecomunicaciones"
-subtitle: "Producto 1 · Informe técnico"
+subtitle: "Práctica 1 (P1) · Informe técnico"
 ---
 
 # Alerta temprana de abandono de clientes en una empresa de telecomunicaciones
 
-**Producto 1 · Informe técnico**
+**Práctica 1 (P1) · Informe técnico**
 
 **Curso:** Machine Learning · Maestría en Ciencia de Datos e Inteligencia Artificial
 **Institución:** Escuela de Posgrado, Universidad Nacional de Juliaca (EPG UNAJ)
@@ -59,7 +59,7 @@ Para elegir los hallazgos con evidencia medimos la asociación de cada variable 
 
 **Hallazgo 5 · Los servicios de protección se asocian a más fidelidad.** Sin soporte técnico abandona el 41.6 % y con él el 15.2 %; sin seguridad en línea, el 41.8 % frente al 14.6 %.
 
-**Qué implican para el modelado:** la clase minoritaria obliga a usar métricas adecuadas y a estratificar; las variables de relación con la empresa (contrato, antigüedad, servicios, pago) deberían dominar al modelo; y las demográficas, en particular el género, aportan poco, aunque las conservamos para poder revisar sesgos en el Producto 2.
+**Qué implican para el modelado:** la clase minoritaria obliga a usar métricas adecuadas y a estratificar; las variables de relación con la empresa (contrato, antigüedad, servicios, pago) deberían dominar al modelo; y las demográficas, en particular el género, aportan poco, aunque las conservamos para poder revisar sesgos en la P2.
 
 ## 3. Métrica de éxito
 
@@ -157,22 +157,22 @@ De los **374 clientes del test que abandonaron, el modelo detecta 289** y no det
 ## 7. Conclusiones
 
 1. El abandono afecta al **26.5 %** de los clientes y se concentra en quienes tienen **contrato mensual** (42.7 %), son **nuevos** (47.4 % en el primer año), tienen **fibra óptica** (41.9 %), pagan con **cheque electrónico** (45.3 %) o no tienen **servicios de protección** (≈ 42 %).
-2. Con un Pipeline que evita la fuga de datos, **la regresión logística L2 es el mejor modelo del Producto 1**: recall 0.793 en validación cruzada y **0.773 en el test**, con ROC-AUC 0.839.
+2. Con un Pipeline que evita la fuga de datos, **la regresión logística L2 es el mejor modelo de la P1**: recall 0.793 en validación cruzada y **0.773 en el test**, con ROC-AUC 0.839.
 3. La exactitud no sirve para este problema: el baseline obtiene 73.5 % sin detectar a nadie.
 4. `cargo_total` se excluyó por ser redundante, no por fuga; la decisión está respaldada por una prueba con y sin la variable.
-5. **Próximo paso (Producto 2):** optimizar el modelo de boosting, comprobar con una prueba estadística si mejora de verdad a la regresión logística, interpretar el modelo y revisar sesgos.
+5. **Próximo paso (P2):** optimizar el modelo de boosting, comprobar con una prueba estadística si mejora de verdad a la regresión logística, interpretar el modelo y revisar sesgos.
 
 **Limitaciones.** Es un dataset de muestra de una empresa ficticia y una foto de un solo momento; el modelo no sabe *por qué* se va un cliente ni cuánto vale cada uno. Las relaciones encontradas son asociaciones, no causas.
 
-## Uso de inteligencia artificial generativa
+## Declaración sobre el uso de herramientas de inteligencia artificial
 
-El código, los análisis y los borradores de este informe se generaron con herramientas de inteligencia artificial generativa a partir de las indicaciones del equipo. Todas las cifras provienen de la ejecución real de los notebooks del repositorio. El equipo es responsable de revisar, ejecutar y poder explicar todo el contenido antes de entregarlo.
+En la elaboración de este informe se emplearon herramientas de inteligencia artificial generativa como apoyo en la escritura de código y en la redacción de borradores. Los resultados numéricos proceden de la ejecución de los notebooks del repositorio y fueron verificados por el equipo, que asume la responsabilidad del contenido.
 
 ## Referencias
 
 IBM. (2019). *Telco customer churn on ICP4D* [Repositorio de GitHub; dataset Telco-Customer-Churn.csv]. https://github.com/IBM/telco-customer-churn-on-icp4d
 
-Kaufman, S., Rosset, S., Perlich, C., & Stitelman, O. (2012). Leakage in data mining: Formulation, detection, and avoidance. *ACM Transactions on Knowledge Discovery from Data, 6*(4), Artículo 15. https://doi.org/10.1145/2382577.2382579 [VERIFICAR DOI]
+Kaufman, S., Rosset, S., Perlich, C., & Stitelman, O. (2012). Leakage in data mining: Formulation, detection, and avoidance. *ACM Transactions on Knowledge Discovery from Data, 6*(4), Artículo 15. https://doi.org/10.1145/2382577.2382579
 
 Ke, G., Meng, Q., Finley, T., Wang, T., Chen, W., Ma, W., Ye, Q., & Liu, T.-Y. (2017). LightGBM: A highly efficient gradient boosting decision tree. En *Advances in Neural Information Processing Systems 30* (pp. 3146–3154).
 
