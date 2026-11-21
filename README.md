@@ -188,7 +188,7 @@ La carpeta [`data/prueba/`](data/prueba/README.md) contiene archivos listos para
 
 ### 5.2 Prueba de la aplicación de escritorio
 
-Se ejecutó la aplicación tkinter (`app/app_escritorio.py`) con los archivos anteriores mediante `scripts/capturas_app.py`. El registro completo está en [`docs/evidencias/prueba_app_escritorio.md`](docs/evidencias/prueba_app_escritorio.md).
+Se ejecutó la aplicación tkinter (`app/app_escritorio.py`) con los archivos anteriores mediante `scripts/capturas_app.py`, que registra el resultado de cada escenario y captura la ventana. El registro completo, con las 17 capturas, está en [`docs/evidencias/prueba_app_escritorio.md`](docs/evidencias/prueba_app_escritorio.md).
 
 | Escenario | Entrada | Resultado obtenido | Esperado |
 |---|---|---|---|
@@ -202,6 +202,36 @@ Se ejecutó la aplicación tkinter (`app/app_escritorio.py`) con los archivos an
 | Valor no numérico | `error_valor_no_numerico.csv` | «'antiguedad_meses' debe ser un número (filas: 2)» | Rechazo con mensaje ✔ |
 | Categoría inválida | `error_categoria_invalida.csv` | «Valor no válido en 'tipo_contrato': 'Semanal'» | Rechazo con mensaje ✔ |
 | Columna faltante | `error_columna_faltante.csv` | «Faltan columnas obligatorias: metodo_pago» | Rechazo con mensaje ✔ |
+
+#### Capturas de la aplicación
+
+**Figura 1.** Predicción individual de un caso de prueba de riesgo bajo (cliente 5893-PYOLZ). El panel de resultado muestra la probabilidad estimada (8.6 %), el nivel de riesgo, la recomendación y la comparación con el valor real.
+
+![Predicción individual, riesgo bajo](docs/capturas/02_caso.png)
+
+**Figura 2.** Caso de riesgo alto (cliente 8650-RHRKE, 79.4 %). Al no contar con servicio telefónico, el campo *Líneas múltiples* queda fijado en «Sin teléfono».
+
+![Predicción individual, riesgo alto](docs/capturas/07_caso.png)
+
+**Figura 3.** Falso negativo documentado (cliente 3594-UVONA): el modelo estima 20.1 % y el cliente abandonó.
+
+![Predicción individual, falso negativo](docs/capturas/03_caso.png)
+
+**Figura 4.** Predicción por lote sobre los 1 409 clientes del conjunto de prueba. La tabla se ordena por probabilidad y la comparación con el valor real reproduce la matriz de confusión oficial (VP = 301, FN = 73, FP = 292, VN = 743; recall 0.805).
+
+![Predicción por lote del conjunto de prueba](docs/capturas/11_lote.png)
+
+**Figura 5.** Archivo en el formato original de IBM (columnas en inglés), traducido automáticamente por la aplicación.
+
+![Predicción por lote en formato IBM](docs/capturas/13_lote.png)
+
+**Figura 6.** Validación de entradas: el archivo sin la columna `metodo_pago` se rechaza con un mensaje explícito y la aplicación permanece abierta.
+
+![Mensaje de validación](docs/capturas/16_error.png)
+
+**Figura 7.** Pestaña de información del modelo, con las métricas de test leídas de `resultados/modelo_final.json`.
+
+![Información del modelo](docs/capturas/17_acerca_de.png)
 
 ### 5.3 Pruebas automatizadas (pytest)
 

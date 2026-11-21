@@ -113,8 +113,8 @@ class AppChurn(tk.Tk):
     def _pestana_individual(self):
         marco = ttk.Frame(self.pestanas, padding=10)
         self.pestanas.add(marco, text="Predicción individual")
-        marco.columnconfigure(0, weight=3)
-        marco.columnconfigure(1, weight=2)
+        marco.columnconfigure(0, weight=1)
+        marco.columnconfigure(1, weight=0, minsize=360)
         marco.rowconfigure(1, weight=1)
 
         selector = ttk.Frame(marco)
@@ -149,7 +149,8 @@ class AppChurn(tk.Tk):
         panel = ttk.LabelFrame(marco, text="Resultado", padding=12)
         panel.grid(row=1, column=1, sticky="nsew")
         panel.columnconfigure(0, weight=1)
-        ttk.Label(panel, text="Probabilidad estimada de abandono").grid(row=0, column=0, sticky="w")
+        self.lbl_titulo_prob = ttk.Label(panel, text="Probabilidad estimada de abandono", wraplength=320)
+        self.lbl_titulo_prob.grid(row=0, column=0, sticky="w")
         self.lbl_prob = ttk.Label(panel, text="—", style="Prob.TLabel")
         self.lbl_prob.grid(row=1, column=0, sticky="w", pady=(2, 8))
         self.lbl_nivel = tk.Label(panel, text="Complete el formulario y pulse «Estimar riesgo».",
@@ -160,10 +161,11 @@ class AppChurn(tk.Tk):
         self.lbl_reco.grid(row=3, column=0, sticky="w", pady=10)
         self.lbl_real = ttk.Label(panel, text="", wraplength=320, justify="left")
         self.lbl_real.grid(row=4, column=0, sticky="w")
-        ttk.Label(panel, foreground="#555555", wraplength=320, justify="left", text=(
+        self.lbl_nota = ttk.Label(panel, foreground="#888888", wraplength=320, justify="left", text=(
             f"Niveles: bajo < {UMBRAL_MEDIO:.0%} ≤ medio < {UMBRAL_ALTO:.0%} ≤ alto.\n"
             "El modelo apoya decisiones de retención; no debe usarse para negar servicios."
-        )).grid(row=5, column=0, sticky="sw", pady=(20, 0))
+        ))
+        self.lbl_nota.grid(row=5, column=0, sticky="sw", pady=(20, 0))
         self.limpiar()
 
     def _crear_campo(self, padre, fila, var, etiqueta, tipo):
@@ -289,7 +291,7 @@ class AppChurn(tk.Tk):
             self.tabla.heading(col, text=texto, command=lambda c=col: self.ordenar(c))
             self.tabla.column(col, width=ancho, anchor="w")
         for nivel, color in FONDOS_NIVEL.items():
-            self.tabla.tag_configure(nivel, background=color)
+            self.tabla.tag_configure(nivel, background=color, foreground="#1a1a1a")
         scroll = ttk.Scrollbar(contenedor, orient="vertical", command=self.tabla.yview)
         self.tabla.configure(yscrollcommand=scroll.set)
         self.tabla.grid(row=0, column=0, sticky="nsew")

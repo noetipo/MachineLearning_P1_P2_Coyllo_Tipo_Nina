@@ -124,4 +124,4 @@ El resultado queda en `dist/AlertaAbandono/`. Nota: la app busca el modelo con r
 ## 6. Pruebas
 
 - **Automatizadas:** la lógica de predicción se prueba sin interfaz (`tests/test_prediccion.py`, `tests/test_datos_prueba.py`). La prueba de humo de la ventana (`tests/test_apps.py`, que ejecuta `tests/humo_app_escritorio.py`) se omite si no hay entorno gráfico.
-- **Funcional:** `python scripts/capturas_app.py` abre la aplicación, ejecuta los escenarios con los archivos de `data/prueba/` y registra los resultados en `docs/evidencias/prueba_app_escritorio.md`. En macOS, si la terminal tiene permiso de *Grabación de pantalla* (Configuración del Sistema → Privacidad y seguridad), guarda también capturas en `docs/capturas/`.
+- **Funcional:** `python scripts/capturas_app.py` abre la aplicación, ejecuta los escenarios con los archivos de `data/prueba/` y registra los resultados en `docs/evidencias/prueba_app_escritorio.md`. En macOS guarda también una captura de cada escenario en `docs/capturas/`; la aplicación captura sus propias ventanas mediante Quartz (`pip install pyobjc-framework-Quartz`), por lo que no se requiere el permiso de grabación de pantalla.

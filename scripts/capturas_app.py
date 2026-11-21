@@ -1,9 +1,9 @@
 """Prueba funcional de la aplicación de escritorio con los datos de data/prueba/.
 
 Abre la aplicación tkinter, ejecuta cada escenario de prueba y registra lo que
-muestra la interfaz en docs/evidencias/prueba_app_escritorio.md. En macOS,
-si la terminal tiene permiso de grabación de pantalla, guarda además una
-captura de cada escenario en docs/capturas/.
+muestra la interfaz en docs/evidencias/prueba_app_escritorio.md. En macOS
+guarda además una captura de cada escenario en docs/capturas/ (requiere
+pyobjc-framework-Quartz o permiso de grabación de pantalla).
 
 Uso:
     python scripts/capturas_app.py
@@ -28,6 +28,45 @@ EVIDENCIAS = RAIZ / "docs" / "evidencias"
 PRUEBA = RAIZ / "data" / "prueba"
 
 
+def capturar_ventana_propia(ventana, ruta: Path) -> bool:
+    """Captura una ventana de este mismo proceso mediante Quartz (macOS).
+
+    Una aplicación puede capturar sus propias ventanas sin el permiso de
+    grabación de pantalla. Requiere ``pyobjc-framework-Quartz``.
+    """
+    try:
+        import Quartz
+        from Foundation import NSURL
+    except ImportError:
+        return False
+    import os
+    x, ancho = ventana.winfo_rootx(), ventana.winfo_width()
+    info = Quartz.CGWindowListCopyWindowInfo(Quartz.kCGWindowListOptionAll, Quartz.kCGNullWindowID)
+    candidatas = [w for w in info if w["kCGWindowOwnerPID"] == os.getpid()
+                  and abs(w["kCGWindowBounds"]["Width"] - ancho) <= 2
+                  and abs(w["kCGWindowBounds"]["X"] - x) <= 2]
+    if not candidatas:
+        return False
+    imagen = Quartz.CGWindowListCreateImage(
+        Quartz.CGRectNull, Quartz.kCGWindowListOptionIncludingWindow,
+        candidatas[0]["kCGWindowNumber"], Quartz.kCGWindowImageBoundsIgnoreFraming)
+    if imagen is None:
+        return False
+    destino = Quartz.CGImageDestinationCreateWithURL(
+        NSURL.fileURLWithPath_(str(ruta)), "public.png", 1, None)
+    Quartz.CGImageDestinationAddImage(destino, imagen, None)
+    return bool(Quartz.CGImageDestinationFinalize(destino))
+
+
+def capturar_region(ventana, ruta: Path) -> bool:
+    """Alternativa con screencapture; requiere permiso de grabación de pantalla."""
+    x, y = ventana.winfo_rootx(), ventana.winfo_rooty() - 28
+    ancho, alto = ventana.winfo_width(), ventana.winfo_height() + 28
+    r = subprocess.run(["screencapture", "-x", "-o", f"-R{x},{y},{ancho},{alto}", str(ruta)],
+                       capture_output=True, text=True)
+    return r.returncode == 0
+
+
 class Registro:
     def __init__(self, app):
         self.app = app
@@ -41,14 +80,10 @@ class Registro:
         for _ in range(3):
             w.update()
             w.after(300)
-        x, y = w.winfo_rootx(), w.winfo_rooty() - 28
-        ancho, alto = w.winfo_width(), w.winfo_height() + 28
         ruta = CAPTURAS / f"{nombre}.png"
-        r = subprocess.run(["screencapture", "-x", "-o", f"-R{x},{y},{ancho},{alto}", str(ruta)],
-                           capture_output=True, text=True)
-        if r.returncode != 0:
+        if not (capturar_ventana_propia(w, ruta) or capturar_region(w, ruta)):
             self.capturas_ok = False
-            print("Sin permiso de captura de pantalla; se registra solo el texto.")
+            print("No fue posible capturar la ventana; se registra solo el texto.")
             return "—"
         return f"![{nombre}](../capturas/{nombre}.png)"
 
