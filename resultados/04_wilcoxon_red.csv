@@ -1,0 +1,9 @@
+rival,metrica,diferencia_media_MLP_menos_rival,folds_gana_MLP,folds_gana_rival,p_valor
+Regresión logística L2,recall,-0.0071,10,14,0.09713166685114558
+Regresión logística L2,precision,-0.0027,13,12,0.7309892177581787
+Regresión logística L2,roc_auc,-0.0064,5,20,3.1948089599609375e-05
+Regresión logística L2,pr_auc,-0.0167,1,24,1.7881393432617188e-07
+LightGBM optimizado,recall,-0.0201,4,19,0.0012461814879692655
+LightGBM optimizado,precision,-0.0033,13,12,0.7914759516716003
+LightGBM optimizado,roc_auc,-0.0118,1,24,4.172325134277344e-07
+LightGBM optimizado,pr_auc,-0.0293,0,25,5.960464477539063e-08
